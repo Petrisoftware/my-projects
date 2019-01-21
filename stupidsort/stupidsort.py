@@ -6,9 +6,11 @@
 from random import shuffle
 
 
-def stupidsort(old_list):
-    new_list = shuffle(old_list)
-    return new_list
+# Print all items in a list.
+def print_list(the_list):
+    for item in the_list:
+        print(item)
+    return
 
 
 def main():
@@ -29,19 +31,22 @@ def main():
     is_sorted = False
     perms = 0
     not_unsorted = []
+    unsorted.sort()
 
     while is_sorted is False:
-        not_unsorted = stupidsort(unsorted)
+        not_unsorted = unsorted.copy()
+        shuffle(not_unsorted)
         perms += 1
         print("Permutation", perms, "completed.")
 
-        if not_unsorted == unsorted.sort():
+        if not_unsorted == unsorted:
             is_sorted = True
 
     print("List has been bogosorted. It took", perms, "permutations to "
                                                       "complete.")
-    for item in not_unsorted:
-        print(item)
+    # print_list(not_unsorted)
+
+    return
 
 
 main()
