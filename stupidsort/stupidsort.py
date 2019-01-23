@@ -2,6 +2,7 @@
 # Petri Kemppinen
 
 # Implementing a really stupid sorting algorithm.
+# It's basically a bogosort implemented using random's shuffle function.
 
 from random import shuffle
 
@@ -26,13 +27,15 @@ def main():
         except ValueError:
             print("Not an integer, try again.")
 
+    # List has been created.
     print("Ready to sort.")
 
     is_sorted = False
+    # Counting the permutations for the stupid sort.
     perms = 0
-    not_unsorted = []
     unsorted.sort()
 
+    # Performing the actual stupid sort.
     while is_sorted is False:
         not_unsorted = unsorted.copy()
         shuffle(not_unsorted)
@@ -42,9 +45,9 @@ def main():
         if not_unsorted == unsorted:
             is_sorted = True
 
+    # List has been bogosorted.
     print("List has been bogosorted. It took", perms, "permutations to "
                                                       "complete.")
-    # print_list(not_unsorted)
 
     return
 
