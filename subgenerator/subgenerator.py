@@ -41,6 +41,15 @@ def randomitem(lista):
     return item
 
 
+# Arpoo satunnaisen määrän alkioita annetusta listasta ja palauttaa ne listana.
+def randomlist(lista):
+    listsize = random.randint(0, len(lista)-1)
+    listb = []
+    for i in range(listsize):
+        listb.append(randomitem(lista))
+    return listb
+
+
 def main():
     # Tervetuloa.
     print("Welcome to Subway Generator 2019")
