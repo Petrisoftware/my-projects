@@ -56,6 +56,15 @@ def randomlist(lista):
     return listb
 
 
+# Tulostetaan lista hieman siistimmällä tavalla.
+def printlist(lista):
+    listprint = ""
+    for item in lista:
+        listprint += (item + ", ")
+    listprint = listprint.strip(', ')
+    return listprint
+
+
 def main():
     # Tervetuloa.
     print("Welcome to Subway Generator 2019")
@@ -85,12 +94,8 @@ def main():
     # Kerrotaan käyttäjälle mitä tuli arvottua.
     print("\nLeipä:", bread)
     print("Täyte:", filling)
-    print("Kasvikset:")
-    for green in greens:
-        print(green)
-    print("Kastikkeet:")
-    for sauce in sauces:
-        print(sauce)
+    print("Kasvikset:", printlist(greens))
+    print("Kastikkeet:", printlist(sauces))
 
     return
 
