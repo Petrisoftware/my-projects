@@ -34,6 +34,13 @@ def readfiles(aines):
     return lista
 
 
+# Arpoo satunnaisen alkion annetusta listasta.
+def randomitem(lista):
+    itemno = random.randint(0, len(lista)-1)
+    item = lista[itemno]
+    return item
+
+
 def main():
     # Tervetuloa.
     print("Welcome to Subway Generator 2019")
