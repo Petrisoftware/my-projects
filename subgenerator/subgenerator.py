@@ -26,8 +26,9 @@ def checkfiles():
 def readfiles(aines):
     # Lue tiedosto riippuen siitä, mikä lista on kyseessä.
     lista = []
-    f = open(aines, 'r')
+    f = open(aines, 'r', encoding="utf-8")
     for line in f:
+        line = line.strip()
         lista.append(line)
     f.close()
 
@@ -46,7 +47,12 @@ def randomlist(lista):
     listsize = random.randint(0, len(lista)-1)
     listb = []
     for i in range(listsize):
-        listb.append(randomitem(lista))
+        newitem = randomitem(lista)
+        if newitem not in listb:
+            listb.append(newitem)
+        else:
+            # On jo listassa.
+            pass
     return listb
 
 
@@ -70,7 +76,21 @@ def main():
     seed = input("Enter value for random generator: ")
     random.seed(seed)
 
-    # TODO: arvonta
+    # Arvotaan subin täytteet.
+    bread = randomitem(leipa)
+    filling = randomitem(tayte)
+    greens = randomlist(kasvis)
+    sauces = randomlist(kastike)
+
+    # Kerrotaan käyttäjälle mitä tuli arvottua.
+    print("\nLeipä:", bread)
+    print("Täyte:", filling)
+    print("Kasvikset:")
+    for green in greens:
+        print(green)
+    print("Kastikkeet:")
+    for sauce in sauces:
+        print(sauce)
 
     return
 
