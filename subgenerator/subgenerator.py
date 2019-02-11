@@ -8,7 +8,7 @@
 import random
 
 # Tiedostot, jotka ohjelman täytyy lukea.
-FILES = ["leipa.txt", "tayte.txt", "kasvis.txt", "kastike.txt"]
+FILES = ["leipa.txt", "tayte.txt", "kasvis.txt", "kastike.txt", "kuivat.txt"]
 
 
 # Tarkistetaan, että kaikki tiedostot ovat olemassa.
@@ -80,6 +80,7 @@ def main():
     tayte = readfiles("tayte.txt")
     kasvis = readfiles("kasvis.txt")
     kastike = readfiles("kastike.txt")
+    kuivat = readfiles("kuivat.txt")
 
     # Seed satunnaisgeneraattorille.
     seed = input("Enter value for random generator: ")
@@ -90,12 +91,14 @@ def main():
     filling = randomitem(tayte)
     greens = randomlist(kasvis)
     sauces = randomlist(kastike)
+    spices = randomlist(kuivat)
 
     # Kerrotaan käyttäjälle mitä tuli arvottua.
     print("\nLeipä:", bread)
     print("Täyte:", filling)
     print("Kasvikset:", printlist(greens))
     print("Kastikkeet:", printlist(sauces))
+    print("Mausteet:", printlist(spices))
 
     return
 
