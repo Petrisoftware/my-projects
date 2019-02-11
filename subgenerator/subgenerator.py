@@ -69,7 +69,6 @@ def printlist(lista):
 def main(argv):
     # Tervetuloa.
     print("Welcome to Subway Generator 2019")
-    print(argv)
 
     # Tarkistetaan tiedostojen olemassaolo.
     if checkfiles():
