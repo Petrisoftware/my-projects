@@ -6,6 +6,7 @@
 # kastikkeita.
 
 import random
+from sys import argv
 
 # Tiedostot, jotka ohjelman täytyy lukea.
 FILES = ["leipa.txt", "tayte.txt", "kasvis.txt", "kastike.txt", "kuivat.txt"]
@@ -65,9 +66,10 @@ def printlist(lista):
     return listprint
 
 
-def main():
+def main(argv):
     # Tervetuloa.
     print("Welcome to Subway Generator 2019")
+    print(argv)
 
     # Tarkistetaan tiedostojen olemassaolo.
     if checkfiles():
@@ -83,7 +85,10 @@ def main():
     kuivat = readfiles("kuivat.txt")
 
     # Seed satunnaisgeneraattorille.
-    seed = input("Enter value for random generator: ")
+    if len(argv) == 1:
+        seed = input("Enter value for random generator: ")
+    else:
+        seed = argv[1]
     random.seed(seed)
 
     # Arvotaan subin täytteet.
@@ -102,5 +107,4 @@ def main():
 
     return
 
-
-main()
+main(argv)
